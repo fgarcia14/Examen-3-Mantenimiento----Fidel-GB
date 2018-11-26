@@ -8,10 +8,10 @@ if (isset($_GET["id"])) {
 
 
     $query="select * from SALA_REMOTA WHERE id_sala_remota=$id";
-    mysql_query($query) or die(mysql_error());
+    $resultado=$conn->query($query);
     
-     $resultado=mysql_query($query);
-     while ($dato=mysql_fetch_array($resultado)) {
+     //$resultado=mysql_query($query);
+     while ($dato = $resultado->fetch_assoc()) {
        $nom = $dato['nombre'];
        $res = $dato['responsable'];
        $tel = $dato['telefono'];
