@@ -9,15 +9,14 @@ if (isset($_GET["nom"])) {
     $telefono = $_GET["tel"];
     $email = $_GET["mail"];
     $ip = $_GET["ip"];
-    $isdn = $_GET["isdn"];
     
     echo $isdn!=NULL;
     
     // Hay campos en blanco
-    if($name!=NULL||$responsable!=NULL||$telefono!=NULL||$email!=NULL||$ip!=NULL||$isdn!=NULL) {
+    if($name!=NULL||$responsable!=NULL||$telefono!=NULL||$email!=NULL||$ip!=NULL) {
         
-        $sql = "INSERT INTO SALA_REMOTA(nombre, responsable, telefono, email_responsable, ip, isdn) 
-                VALUES ('$name','$responsable','$telefono','$email','$ip','$isdn')";
+        $sql = "INSERT INTO SALA_REMOTA(nombre, responsable, telefono, email_responsable, ip) 
+                VALUES ('$name','$responsable','$telefono','$email','$ip')";
         
         if ($conn->query($sql) === TRUE) {
             echo "New record created successfully";
